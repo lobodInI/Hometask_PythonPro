@@ -5,26 +5,20 @@ from threading import Thread
 
 
 def lucky_recount(interval):
-    start_val = interval[0]
     count = 0
-    for itm in range(int(interval[0]), int(interval[1])+1):
-        sum_one = int(interval[0][0]) + int(interval[0][1]) + int(interval[0][2])
-        sum_two = int(interval[0][3]) + int(interval[0][4]) + int(interval[0][5])
-        modify = int(interval[0]) + 1
-        interval[0] = str(modify)
-        if len(interval[0]) < 6:
-            interval[0] = '0'*(6-len(interval[0]))+interval[0]
-        if sum_one == sum_two:
+    for itm in range(interval[0], interval[1]+1):
+        num = str(itm).rjust(6, "0")
+        if (int(num[0]) + int(num[1]) + int(num[2])) == (int(num[3]) + int(num[4]) + int(num[5])):
             count += 1
-    print(f"Кiлькiсть щасливих квиткiв: {count}  |  iнтервал номерiв:  {start_val} - {interval[1]}")
+    print(f"Кiлькiсть щасливих квиткiв: {count}  |  iнтервал номерiв:  {interval}")
 
 
 def view_threads():
 
-    interval_1 = ['000000', '250000']
-    interval_2 = ['250001', '500000']
-    interval_3 = ['500001', '750000']
-    interval_4 = ['750001', '999999']
+    interval_1 = [0, 250000]
+    interval_2 = [250001, 500000]
+    interval_3 = [500001, 750000]
+    interval_4 = [750001, 999999]
 
     print('>>>>>>>>>>>>>>>>>>>>> START THREADS')
 
@@ -46,10 +40,10 @@ def view_threads():
     print(f'\n{"*" * 50}')
 
 def view_multiprocess():
-    interval_1 = ['000000', '250000']
-    interval_2 = ['250001', '500000']
-    interval_3 = ['500001', '750000']
-    interval_4 = ['750001', '999999']
+    interval_1 = [0, 250000]
+    interval_2 = [250001, 500000]
+    interval_3 = [500001, 750000]
+    interval_4 = [750001, 999999]
 
     print('>>>>>>>>>>>>>>>>>>>>> START PROCESSES')
 
