@@ -2,7 +2,7 @@ import unittest
 from coord_point import Coordinates
 
 
-class TestLenHypotenuse(unittest.TestCase):
+class TestLenLine(unittest.TestCase):
     point1_start = Coordinates(15, 15)
     point2_start = Coordinates(23, 21)
     point2_1 = Coordinates(21, 7)
